@@ -10,7 +10,7 @@ public class Ejercicio02_CuentaAtras {
 
         // Cuenta atrás para el hilo principal
         for (int i = 10; i > 0; i--) {
-            System.out.println("⏰ Tiempo restante: " + i + " segundos");
+            System.out.println("Tiempo restante: " + i + " segundos");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
