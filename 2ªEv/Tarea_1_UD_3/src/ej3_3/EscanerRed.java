@@ -4,7 +4,7 @@ import java.net.InetAddress;
 
 public class EscanerRed {
     public static void main(String[] args) {
-        // CAMBIA ESTO SEGÚN TU RED (ejemplo para 192.168.1.X)
+        // Depende de la red referenciada
         byte[] red = {(byte)192, (byte)168, (byte)1};
 
         System.out.println("Escaneando red 192.168.1.0/24 ...");
@@ -17,10 +17,9 @@ public class EscanerRed {
                 byte[] ipBytes = {red[0], red[1], red[2], (byte)i};
                 InetAddress address = InetAddress.getByAddress(ipBytes);
 
-                // Intentamos conectar con un timeout de 100ms
-                // Nota: isReachable intenta ICMP (Ping) o TCP puerto 7
-                if (address.isReachable(100)) {
-                    System.out.println(address.getHostAddress() + " es ALCANZABLE (" + address.getHostName() + ")");
+                // timeout 500 ms para mayor fiabilidad
+                if(address.isReachable(500)){
+                    System.out.println(address.getHostAddress()+" es ALCANZABLE ("+address.getHostName()+")");
                 }
             } catch (Exception e) {
                 // Ignoramos errores para no ensuciar la salida

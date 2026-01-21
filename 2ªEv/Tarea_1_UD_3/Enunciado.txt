@@ -2,11 +2,11 @@ Escribe un programa que muestre información de todas las interfaces de red pres
 No hace falta que muestre información de su configuración para IPv4 o IPv6 (es decir, direcciones IP, máscaras de red, direcciones de broadcast, etc.).
 Antes de ejecutar el programa, asegúrate de que el ordenador tenga conexión a internet, o al menos a una red local.
 ¿En qué cambia la salida del programa cuando se desconecta el cable de red o se desactiva la interfaz de red desde el sistema operativo?
-¿Para qué tipos de interfaces se muestra información?¿Hay alguna que esté siempre activa?¿Cuál?
+¿Para qué tipos de interfaces se muestra información? ¿Hay alguna que esté siempre activa? ¿Cuál?
 
-3.2 Amplia el programa anterior para mostrar información´ de la configuración IP para cada interfaz, al menos la dirección o direcciones IP,
+3.2 Amplía el programa anterior para mostrar información´ de la configuración IP para cada interfaz, al menos la dirección o direcciones IP,
 y las correspondientes máscaras de red y direcciones de broadcast. Puedes utilizar el operador "instanceof" para distinguir cuándo
-una dirección IP es IPv4 (clas Inet4Adress) o Ipv´0 (clase Inet6Adress). Compara la información mostrada por el programa con la mostrada por
+una dirección IP es IPv4 (clas Inet4Address) o Ipv´0 (clase Inet6Address). Compara la información mostrada por el programa con la mostrada por
 "ipconfig" o "ip addr" (en Linux) o "ipconfig" (Windows)
 
 3.3 Probablemente, tu ordenador está situado en una red local con direcciones privadas de tipo C con máscaras de red de 24 bits.
@@ -21,13 +21,13 @@ o "ipconfig"(Windows) y analizando la información que muestra.
 	bastará con un bucle para los valores del último byte para probar todas las direcciones.
 		Si tu ordenador no está en una red local con direcciones privadas de tipo C, seguramente estará en una de tipo B,
 		lo que puede complicar un poco las cosas, pero no mucho más. En lugar de un bucle para el valor del último byte de la dirección IP,
-		habrá que hace run bucle anidado par alos dos últimos bytes. Si la máscara de red no es de 24 o 16 bits, la cosa se complica bastante más.
+		habrá que hace run bucle anidado para los dos últimos bytes. Si la máscara de red no es de 24 o 16 bits, la cosa se complica bastante más.
 			Para crear las "InetAddress" se puede utilizar el método "static Address getByAddress(byte[] addr)" de "InetAddress".
-			Ten en cuenta que la primera direción del rango (bits para host todos a cero) es la direción de la red, y que la última
+			Ten en cuenta que la primera dirección del rango (bits para host todos a cero) es la dirección de la red, y que la última
 			(bits para host todos a uno) es la dirección de broadcast, y que ninguna de ellas corresponde a ningún host.
 			
-			3.4 Lo más normal es que tu ordenador de clase tenga una interfaz de red cableada. Si no, podría tener ua interfaz de red inalámbrica.
-			En cualquier caso, escribe un programa que obtenga la dirección de broadcast para la red local en la que está esa interfaz.
-			Esto puede ser útil para algunos programas para la UDP que se crearán después. Verifica la información de todos los "NetworkInterface"
-			que se pueden obtener con un método estático de esta misma clase vista con anterioridad. Debe seleccionarse una interfaz
-			para la que exista una dirección IP para una red local, para lo que se puede utilizar el método "isSiteLocalAddress"
+3.4 Lo más normal es que tu ordenador de clase tenga una interfaz de red cableada. Si no, podría tener ua interfaz de red inalámbrica.
+En cualquier caso, escribe un programa que obtenga la dirección de broadcast para la red local en la que está esa interfaz.
+Esto puede ser útil para algunos programas para la UDP que se crearán después. Verifica la información de todos los "NetworkInterface"
+que se pueden obtener con un método estático de esta misma clase vista con anterioridad. Debe seleccionarse una interfaz
+para la que exista una dirección IP para una red local, para lo que se puede utilizar el método "isSiteLocalAddress"
