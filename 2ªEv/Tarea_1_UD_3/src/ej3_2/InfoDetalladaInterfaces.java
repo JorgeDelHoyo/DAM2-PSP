@@ -11,8 +11,7 @@ public class InfoDetalladaInterfaces {
             System.out.printf("Display name: %s\n", netint.getDisplayName());
             System.out.printf("Name: %s\n", netint.getName());
 
-            // Obtenemos la lista de direcciones de interfaz (InterfaceAddress)
-            // Esto es mejor que getInetAddresses() porque nos da máscaras y broadcast
+            // Lista direcciones de interfaz mejor InterfaceAddres que getInetAddresses() porque da máscaras y broadcast
             List<InterfaceAddress> listIntAddr = netint.getInterfaceAddresses();
 
             for (InterfaceAddress addr : listIntAddr) {
@@ -28,10 +27,10 @@ public class InfoDetalladaInterfaces {
                 }
 
                 // Máscara (Prefix Length)
-                // En Java no te da "255.255.255.0", te da la longitud del prefijo (ej: 24)
+                // En Java no da "255.255.255.0", da la longitud del prefijo
                 System.out.println("\n    Máscara (bits): /" + addr.getNetworkPrefixLength());
 
-                // Broadcast (solo existe en IPv4 generalmente)
+                // Broadcast (Normalmente IPv4)
                 if (addr.getBroadcast() != null) {
                     System.out.println("    Broadcast: " + addr.getBroadcast().getHostAddress());
                 }
@@ -40,3 +39,4 @@ public class InfoDetalladaInterfaces {
         }
     }
 }
+
